@@ -59,3 +59,58 @@ void deleteAfter(listElement* after){
   free(delete->data);
   free(delete);
 }
+
+int length(listElement* list){
+	int length;
+	listElement *element = list;
+	while(element != NULL){
+		element->next = list;
+		length++;
+	}
+	
+	return length;
+	}
+
+void push(listElement** list, char* data, size_t size) {
+	listElement *pushNew = createEl(data, size);
+	pushNew->next = *list;
+	*list = pushNew;
+}
+
+listElement* pop(listElement** list) {
+	listElement *head = *list;
+	if(list == NULL){
+		printf("This stack is empty! \n");
+		return NULL;
+	}
+	if(head){
+		*list = head->next;
+	}
+	
+	return head;
+}
+
+void enqueue(listElement** list, char* data, size_t size){
+	listElement *enqueueNew = createEl(data, size);
+	
+	enqueueNew->next = *list;
+	*list = enqueueNew;
+	
+}
+
+listElement* dequeue(listElement* list) {
+	listElement *temp = list;
+	
+	
+	if(list == NULL){
+		printf("This stack is empty! \n");
+		return NULL;
+	}
+	
+	else{
+		temp = temp-> next;
+	}
+	listElement *tail = temp->next;
+	
+	return tail;
+}

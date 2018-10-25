@@ -20,6 +20,10 @@ void runTests(){
   deleteAfter(l);
   traverse(l);
   printf("\n");
+  
+ 
+int lengthP = length(1);
+  printf("Length of linked list = %d \n", lengthP);
 
   printf("\nTests complete.\n");
 }
